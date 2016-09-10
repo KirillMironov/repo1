@@ -53,4 +53,29 @@ class GroovySyntaxTest extends GroovyTestCase{
 
 
     }
+    public void testLoops(){
+        // while loop
+        int i = 0
+        while (i < 3){
+            println("i=" + i) // оператор, statement
+            i = i + 1
+        }
+        // for loop
+        int j = 10
+        for( ; ; ){
+            if(j >= 13) {
+                break
+            }
+            println("j=" + j)
+            j ++
+        }
+        int k = 10
+        while(true){
+            if(k >= 13) {
+                break
+            }
+            println("k=" + k)
+            k ++
+        }
+    }
 }
