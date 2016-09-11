@@ -13,5 +13,13 @@ class InMemoryStorageTest extends GroovyTestCase {
         car.license = "123abc"
         car.model = "Moskvich412"
         storage.add(car)
+        car = new Car(license: "456def", model: "audi100")
+        storage.add(car)
+        for (i in 0..storage.cars.length - 1) {
+            car = storage.cars[i]
+            if (car != null) {
+                println("i=" + i + ", " + car)
+            }
+        }
     }
 }
