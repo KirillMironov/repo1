@@ -6,7 +6,7 @@ class InMemoryStorage {
 
     def add(Car car) {
         car.license.toString()
-        cars[car.license.hashCode()%10000] = car
+        cars[car.license.hashCode() % 10000] = car
         println(car)
     }
 

@@ -3,9 +3,9 @@ import org.junit.Test
 /**
  * Created by 123 on 10.09.2016.
  */
-class GroovySyntaxTest extends GroovyTestCase{
+class GroovySyntaxTest extends GroovyTestCase {
     //@Test
-    public void testExpression(){
+    public void testExpression() {
         // литералы, literals
         // int
         0
@@ -43,39 +43,71 @@ class GroovySyntaxTest extends GroovyTestCase{
         println("f2 =" + f2)
         int i4 = f1 + 1
         println("i4 =" + i4)
-        String s2 = 0.3 ** 2
+        String s2 = 0.3**2
         println(s2)
         println("e**2 =" + Math.exp(2.0))
         boolean b1 = true
         boolean b2 = false
-        println("b1 AND b2 =" +(b1 && b2))
-        println("b1 or b2 =" +(b1 || b2))
+        println("b1 AND b2 =" + (b1 && b2))
+        println("b1 or b2 =" + (b1 || b2))
 
 
     }
-    public void testLoops(){
+
+    public void testLoops() {
         // while loop
         int i = 0
-        while (i < 3){
+        while (i < 3) {
             println("i=" + i) // оператор, statement
             i = i + 1
         }
         // for loop
         int j = 10
-        for( ; ; ){
-            if(j >= 13) {
+        for (; ;) {
+            if (j >= 13) {
                 break
             }
             println("j=" + j)
-            j ++
+            j++
         }
         int k = 10
-        while(true){
-            if(k >= 13) {
+        while (true) {
+            if (k >= 13) {
                 break
             }
             println("k=" + k)
-            k ++
+            k++
         }
+    }
+
+    class Person {
+        public String firstName
+        public String lastName
+        public Date dob
+
+        Person(String firstName, String lastName, Date dob) {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.dob = dob
+        }
+
+        @Override
+        public String toString() {
+            return "Person{" +
+                    "firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", dob=" + dob +
+                    '}';
+        }
+    }
+
+    public void testArrays() {
+        int[] ia = null
+        int[] ia1 = new int[4]
+        ia1[0] = 100
+        println(ia1)
+        Person[] people = new Person[4]
+        people[0] = new Person("Bart", "Simpson", new Date())
+        println(people)
     }
 }
