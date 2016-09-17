@@ -22,4 +22,21 @@ class InMemoryStorageTest extends GroovyTestCase {
             }
         }
     }
+
+    //@Test
+    public void testLicense () {
+        def car = new Car()
+        car.license = "123abc"
+        car.model = "Moskvich412"
+        storage.cars[3] = car
+
+        def foundCar = storage.find("123abc")
+
+        assert foundCar.license == "123abc"
+
+        foundCar = storage.find("123xyz")
+
+        assert foundCar == null
+
+    }
 }
