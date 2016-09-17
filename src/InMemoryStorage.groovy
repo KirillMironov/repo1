@@ -25,5 +25,8 @@ class InMemoryStorage {
         }
         return car
     }
+    def simpleTest(int i) {
+        println(cars[i])
+    }
 
 }
