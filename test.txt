@@ -1,3 +1,9 @@
-111
-222
-333
+1 Создать класс Calculator
+2 Создать класс CalculatorTest
+3 Написать функцию calculateShereVolume(double radius)
+4 Использовать формулу http://simple-math.ru/geometry/volume-sphere.php
+5 Значение константы pi: Math.PI
+6 Возведение в степень: Math.pow(x,y) //x в степени y
+3,14159265358979323846
+4.188790204786391
+33,510321638291127876906666666667
