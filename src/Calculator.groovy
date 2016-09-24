@@ -16,11 +16,23 @@ class Calculator {
     int calculateSum(int[][] array) {
         int sum = 0
         for (int row in 0..array.length - 1) {
-            for (int col in 0..array[0].length - 1) {
+            for (int col in 0..array[row].length - 1) {
                 sum = sum + array[row][col]
             }
         }
         return sum
+    }
+
+    int findMaxElement(int[][] array) {
+        int maxValue = Integer.MIN_VALUE
+        for(int row in 0..array.length - 1) {
+            for (int col in 0..array[row].length - 1) {
+                if(array[row][col] > maxValue) {
+                    maxValue = array[row][col]
+                }
+            }
+        }
+        return maxValue
     }
 
 
