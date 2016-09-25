@@ -71,5 +71,18 @@ class CalculatorTest extends GroovyTestCase {
         assert calculator.findMaxElement(a2) == -1
     }
 
+    public void testReversElements() {
+
+        int[] a1 = [10, 20 , 30, 40, 50]
+        int[] reversed = calculator.reversElements(a1)
+        assert reversed[0] == 50
+        assert reversed[1] == 40
+        assert reversed[2] == 30
+        assert reversed[3] == 20
+        assert reversed[4] == 10
+
+
+    }
+
 
 }

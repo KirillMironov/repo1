@@ -35,5 +35,29 @@ class Calculator {
         return maxValue
     }
 
+    int[] reversElements(int[] array) {
+        int[] reversed = new int[array.length]
+        int r = array.length - 1
+        for(int i in 0..array.length - 1) {
+            reversed[r] = array[i]
+            r = r - 1
+        }
+        return reversed
+    }
+    /*
+    0 <- 0
+    1 <- 1
+    2 <- 2
+    3 <- 3
+    4 <- 4
+
+    r    i
+    4 <- 0
+    3 <- 1
+    2 <- 2
+    1 <- 3
+    0 <- 4
+     */
+
 
 }
