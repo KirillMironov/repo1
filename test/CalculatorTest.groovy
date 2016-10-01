@@ -84,5 +84,10 @@ class CalculatorTest extends GroovyTestCase {
 
     }
 
+    public void testPrintPositiveElements() {
+        int[] a3 = [1, -7, 3, 5, -2]
+        calculator.printPositiveElements(a3)
+    }
+
 
 }

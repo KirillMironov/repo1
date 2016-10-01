@@ -8,6 +8,7 @@ class Calculator {
         double volume = 4 / 3 * Math.PI * Math.pow(radius, 3)
         return volume
     }
+
     double calculateCylinderVolume(double radius, double height) {
         double volume = Math.PI * Math.pow(radius, 2)
         return volume
@@ -25,9 +26,9 @@ class Calculator {
 
     int findMaxElement(int[][] array) {
         int maxValue = Integer.MIN_VALUE
-        for(int row in 0..array.length - 1) {
+        for (int row in 0..array.length - 1) {
             for (int col in 0..array[row].length - 1) {
-                if(array[row][col] > maxValue) {
+                if (array[row][col] > maxValue) {
                     maxValue = array[row][col]
                 }
             }
@@ -37,8 +38,8 @@ class Calculator {
 
     int[] reversElements(int[] array) {
         int[] reversed = new int[array.length]
-        int r = array.length - 1
-        for(int i in 0..array.length - 1) {
+        int i5 = array.length - 1
+        for (int i in 0..array.length - 1) {
             reversed[r] = array[i]
             r = r - 1
         }
@@ -59,5 +60,12 @@ class Calculator {
     0 <- 4
      */
 
+    def printPositiveElements(int[] array) {
+        for (int i in 0..array.length - 1) {
+            if (array[i] > 0) {
+                print(array[i] + " ")
+            }
+        }
+    }
 
 }
