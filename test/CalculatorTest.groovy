@@ -6,6 +6,7 @@ class CalculatorTest extends GroovyTestCase {
     final double DELTA = 0.000000001
 
     def calculator = new Calculator()
+    def calculatorJ = new CalculatorJ()
 
     public void testCalculator() {
         double volume = calculator.calculateSphereVolume(1.0)
@@ -51,6 +52,8 @@ class CalculatorTest extends GroovyTestCase {
                 [2, 6, 8]
         ]
         assert calculator.findMaxElement(a2) == 9
+
+        assert calculatorJ.findMaxElement(a2) == 9
 
 
         a2 = [
