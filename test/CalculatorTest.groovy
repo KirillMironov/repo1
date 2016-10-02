@@ -76,7 +76,7 @@ class CalculatorTest extends GroovyTestCase {
 
     public void testReversElements() {
 
-        int[] a1 = [10, 20 , 30, 40, 50]
+        int[] a1 = [10, 20, 30, 40, 50]
         int[] reversed = calculator.reversElements(a1)
         assert reversed[0] == 50
         assert reversed[1] == 40
