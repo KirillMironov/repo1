@@ -92,5 +92,9 @@ class CalculatorTest extends GroovyTestCase {
         calculator.printPositiveElements(a3)
     }
 
+    public void testPI() {
+        calculatorJ.calculatePI()
+    }
+
 
 }
