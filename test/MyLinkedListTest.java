@@ -30,4 +30,21 @@ public class MyLinkedListTest {
         assertTrue(list.size() == 2);
     }
 
+    @Test
+    public void testAddLast() {
+        list.addLast("red");
+        assertTrue(list.tail == list.head);
+        assertTrue(list.size() == 1);
+
+        list.addLast("green");
+        assertTrue(list.getFirst().equals("red"));
+        assertTrue(list.getLast().equals("green"));
+        assertTrue(list.size() == 2);
+
+        list.addLast("black");
+        assertTrue(list.getFirst().equals("red"));
+        assertTrue(list.getLast().equals("black"));
+        assertTrue(list.size() == 3);
+    }
+
 }

@@ -50,6 +50,20 @@ public class MyLinkedList {
             size++; //Увеличить size на единицу
         }
     }
-
-
+    public void addLast(Object obj) {
+        if (tail == null) {
+            Node node = new Node();
+            node.obj = obj;
+            tail = node;
+            head = node;
+            size++;
+        } else {
+            Node node = new Node();
+            node.obj = obj;
+            tail.prev = node;
+            node.next = tail;
+            tail = node;
+            size++;
+        }
+    }
 }
