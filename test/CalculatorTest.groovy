@@ -1,6 +1,7 @@
 /**
  * Created by 123 on 18.09.2016.
  */
+@Grab(group = "commons-codec", module = "commons-codec", version = "1.10")
 class CalculatorTest extends GroovyTestCase {
 
     final double DELTA = 0.000000001
