@@ -90,4 +90,41 @@ public class MyLinkedList {
         return null;
     }
 
+
+    private Node getNode(int idx) {
+        if (idx < 0) {
+            return null;
+        }
+        Node node = head;
+        int i = 0;
+        while (i < idx && node != null) {
+            node = node.next;
+            i++;
+        }
+        if (node != null) {
+            return node;
+        }
+        return null;
+    }
+
+
+    public Object remove(int idx) {
+        Node node = getNode(idx);
+        if (node != null) {
+            if (node.next != null) {
+                node.next.prev = node.prev;
+            } else {
+                tail = node.prev;
+            }
+            if (node.prev != null) {
+                node.prev.next = node.next;
+            } else {
+                head = node.next;
+            }
+            size--;
+            return node.obj;
+        }
+        return null;
+    }
+
 }
