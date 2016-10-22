@@ -16,7 +16,7 @@ public class MyQueue implements Queue {
 
     @Override
     public Object peek() {
-        return null;
+        return list.getFirst();
     }
 
     @Override
