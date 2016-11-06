@@ -8,15 +8,26 @@ import java.sql.SQLException;
  * Created by 123 on 06.11.2016.
  */
 public class ExceptionJavaTest {
+
     public void calculate1(int i) throws Exception {
-        if (i == 1) {
+        /*if (i == 1) {
             throw new IOException();
         } else if (i == 2) {
             throw new SQLException();
         } else if (i == 3) {
             throw new MalformedURLException();
         } else {
-            throw new Exception();
+            //throw new Exception();
+        }*/
+        switch (i) {
+            case 1:
+                throw new IOException();
+            case 2:
+                throw new SQLException();
+            case 3:
+                throw new MalformedURLException();
+            default:
+                throw new Exception();
         }
     }
 
@@ -24,7 +35,7 @@ public class ExceptionJavaTest {
         try {
             calculate1(i);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -33,7 +44,7 @@ public class ExceptionJavaTest {
     }
 
     @Test
-    public void testCalculate1() {
+    public void testCalculate11() {
         try {
             calculate11(1);
         } catch (Exception e) {
