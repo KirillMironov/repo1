@@ -67,12 +67,7 @@ public class HomesForSaleApplication extends Application {
         TextField priceText = new TextField("Price");
 
         Button button = new Button("Add");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                homes.add(new Home(addressText.getText(), cityText.getText(), stateText.getText(), zipText.getText(), priceText.getText()));
-            }
-        });
+        button.setOnAction(event -> homes.add(new Home(addressText.getText(), cityText.getText(), stateText.getText(), zipText.getText(), priceText.getText())));
 
         HBox hb = new HBox();
         hb.getChildren().addAll(addressText, cityText, stateText, zipText, priceText, button);
