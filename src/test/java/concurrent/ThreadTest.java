@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Random;
+
 /**
  * Created by 123 on 20.11.2016.
  */
@@ -18,14 +20,27 @@ public class ThreadTest {
         }
     }
 
+    Random random = new Random();
+
+    private long random() {
+        return Math.abs(random.nextLong()%10);
+    }
+
+    long x = 0;
+
+    final Object lock = new Object();
 
     @Test
     public void test() {
         log.info("Hello!");
+
         Thread thread1 = new Thread("thread1") {
             @Override
             public void run() {
-                for(int i = 0; i < 100; i++) {
+                for(int i = 0; i < 10; i++) {
+                    synchronized (lock) {
+                        x = x + 1;
+                    }
                     log.info("*" +i);
                     pause(10);
                 }
@@ -35,7 +50,10 @@ public class ThreadTest {
         Thread thread2 = new Thread("thread2") {
             @Override
             public void run() {
-                for(int i = 0; i < 100; i++) {
+                for(int i = 0; i < 10; i++) {
+                    synchronized (lock) {
+                        x = x + 1;
+                    }
                     log.info("*" +i);
                     pause(10);
                 }
@@ -43,6 +61,7 @@ public class ThreadTest {
         };
         thread1.start();
         thread2.start();
-        pause(100);
+        pause(1000);
+        log.info("x =" + x);
     }
 }
