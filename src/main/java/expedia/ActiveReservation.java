@@ -8,7 +8,7 @@ public abstract class ActiveReservation implements Reservation{
     long id;
 
     public void prepareBooking() {
-        /*User fills the form with credit card and personal data*/
+        /*User fills the form with credit card and personal label*/
     }
 
     public void completeBooking() {
