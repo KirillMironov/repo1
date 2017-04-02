@@ -3,15 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                     http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>test</groupId>
+        <artifactId>repo1-root</artifactId>
+        <version>1</version>
+    </parent>
     <groupId>test</groupId>
-    <artifactId>test</artifactId>
+    <artifactId>groovy</artifactId>
     <version>1</version>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-
+    
     <dependencies>
 
         <dependency>
