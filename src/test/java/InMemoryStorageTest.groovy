@@ -1,5 +1,3 @@
-import org.junit.Test
-
 /**
  * Created by 123 on 05.09.2016.
  */
