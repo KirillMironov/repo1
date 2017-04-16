@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.Locale;
 
 /**
  * Created by kmiro on 08.04.2017.
@@ -21,6 +22,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void test(PrintWriter writer) {
+        Locale.setDefault(Locale.ENGLISH);
         try {
             DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
         } catch (SQLException e) {
