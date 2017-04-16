@@ -15,6 +15,7 @@ import java.util.Locale;
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         //writer.println("Hello,web!");
         test(writer);
