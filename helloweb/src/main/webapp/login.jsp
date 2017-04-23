@@ -25,7 +25,7 @@
 </head>
 <body>
 <div style="horiz-align: center">
-    <form action="login-controller.jsp" onsubmit="processForm(); return true;" method="post">
+    <form action="login-controller" onsubmit="processForm(); return true;" method="post">
         <table border="1">
             <tr>
                 <td><label for="loginInput">Login:</label></td>

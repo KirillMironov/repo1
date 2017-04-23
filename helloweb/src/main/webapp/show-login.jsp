@@ -17,5 +17,8 @@
     <div>
         Password:<%= request.getParameter("password")%>
     </div>
+    <div>
+        Message:<%= request.getParameter("message")%>
+    </div>
 </body>
 </html>

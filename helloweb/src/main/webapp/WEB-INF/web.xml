@@ -21,4 +21,14 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>helloweb.LoginController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/login-controller</url-pattern>
+    </servlet-mapping>
+
 </web-app>
