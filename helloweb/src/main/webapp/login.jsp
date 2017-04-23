@@ -9,10 +9,23 @@
 <html>
 <head>
     <title>Login</title>
+    <script src="js/core.js"></script>
+    <script src="js/sha256.js"></script>
+    <script>
+        function sha256(s) {
+            return CryptoJS.SHA256(s)
+        }
+        function processForm() {
+            var password = document.getElementById('passwordInput').value;
+            var hash = sha256(password);
+            document.getElementById('passwordInput').value = hash;
+            return true;
+        }
+    </script>
 </head>
 <body>
 <div style="horiz-align: center">
-    <form action="login-controller.jsp" method="post">
+    <form action="login-controller.jsp" onsubmit="processForm(); return true;" method="post">
         <table border="1">
             <tr>
                 <td><label for="loginInput">Login:</label></td>

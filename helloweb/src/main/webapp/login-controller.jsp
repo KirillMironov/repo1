@@ -9,13 +9,6 @@
 <html>
 <head>
     <title>Login-controller</title>
-    <script src="js/core.js"></script>
-    <script src="js/sha256.js"></script>
-    <script>
-        function sha256(s) {
-            return CryptoJS.SHA256(s)
-        }
-    </script>
 </head>
 <body>
     <div>
@@ -23,12 +16,6 @@
     </div>
     <div>
         Password:<%= request.getParameter("password")%>
-    </div>
-    <div>
-        <form name="test">
-            <input type="button" value="test" onclick="alert(sha256('123'))">
-        </form>
-        Hash:sha256('<%= request.getParameter("password")%>')
     </div>
 </body>
 </html>
