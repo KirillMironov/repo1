@@ -10,17 +10,20 @@ import java.io.IOException;
  * Created by kmiro on 23.04.2017.
  */
 public class LoginController extends HttpServlet {
+    UserDAO userDAO = new UserDAO();
+    Hasher hasher = new Hasher();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String correctPassword = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3";
         String login = req.getParameter("login");
-        String password = req.getParameter("password");
+        String password = req.getParameter("hash");
+        User user = userDAO.findByLogin(login);
+        String hash = hasher.sha256(user.salt,password);
         String message;
-        if (correctPassword.equals(password)) {
+        if (hash.equals(user.hash)) {
             message = "Password is correct.";
         } else {
             message = "Password is not correct.";
         }
-        resp.sendRedirect("show-login.jsp?message=" + message + "&login=" + login + "&password=" + password);
+        resp.sendRedirect("show-login.jsp?message=" + message + "&login=" + login + "&hash=" + password);
     }
 }

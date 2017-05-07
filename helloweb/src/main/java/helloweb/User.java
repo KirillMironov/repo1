@@ -6,7 +6,7 @@ package helloweb;
 public class User {
     public long id;
     public String login;
-    public String password;
+    public String hash;
     public String salt;
     public String firstName;
     public String lastName;

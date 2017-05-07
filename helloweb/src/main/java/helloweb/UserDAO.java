@@ -29,7 +29,7 @@ public class UserDAO {
                 user = new User();
                 user.id = rs.getLong("id");
                 user.login = rs.getString("login");
-                user.password = rs.getString("password");
+                user.hash = rs.getString("hash");
                 user.salt = rs.getString("salt");
                 user.firstName = rs.getString("first_name");
                 user.lastName = rs.getString("last_name");
