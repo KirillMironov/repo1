@@ -16,9 +16,9 @@
             return CryptoJS.SHA256(s)
         }
         function processForm() {
-            var password = document.getElementById('passwordInput').value;
+            /*var password = document.getElementById('passwordInput').value;
             var hash = sha256(password);
-            document.getElementById('passwordInput').value = hash;
+            document.getElementById('passwordInput').value = hash;*/
             return true;
         }
     </script>

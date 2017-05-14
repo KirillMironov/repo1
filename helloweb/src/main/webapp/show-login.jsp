@@ -15,7 +15,7 @@
         Login:<%= request.getParameter("login")%>
     </div>
     <div>
-        Password:<%= request.getParameter("hash")%>
+        Hash:<%= request.getParameter("hash")%>
     </div>
     <div>
         Message:<%= request.getParameter("message")%>
