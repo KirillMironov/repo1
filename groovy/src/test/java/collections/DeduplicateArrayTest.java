@@ -24,6 +24,25 @@ public class DeduplicateArrayTest {
         System.out.print("");
 
     }
+    @Test
+    public void test2(){
+        int a = 9;
+        int b = 15;
+
+        float sum = (float) (12 + a + b + Math.pow(5,2));
+
+        int x1 = 1;
+        long x2 = 2;
+
+        String s1 = "Hello";
+        Integer c = 7;
+        String s2 = s1 + c;
+
+        String s3 = s1 +
+                c +
+                'x' +
+                "x";
+    }
 }
 
 
