@@ -2,6 +2,7 @@ package math;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -16,6 +17,33 @@ public class MatrixTest {
         return a * d - b * c;
     }
 
+    public int[][] get2x2(int[][] matrix, int row, int col) {
+        int[][] result = new int[2][2];
+        int rr = 0;
+        int cc = 0;
+        for (int r = 0; r < matrix.length; r++) {
+            if (r == row) {
+                continue;
+            }
+            for (int c = 0; c < matrix.length; c++) {
+                if (c == col) {
+                    continue;
+                }
+                result[rr][cc] = matrix[r][c];
+                cc++;
+            }
+            cc = 0;
+            rr++;
+        }
+        return result;
+    }
+
+    public int calculate3x3(int[][] matrix) {
+
+
+        return 0;
+    }
+
     @Test
     public void test() {
         /*1) Матрица произвольного размера int[][],
@@ -23,14 +51,41 @@ public class MatrixTest {
         * 3) col <= Matrix.size-2,
         * 4) Вернуь: a*d-b*c */
         int[][] matrix = {
-                {-9,1,0,3},
-                {4,1,1,-5},
-                {-2,2,-1,7},
-                {-1,9,-4,8}
+                {-9, 1, 0, 3},
+                {4, 1, 1, -5},
+                {-2, 2, -1, 7},
+                {-1, 9, -4, 8}
         };
-        int result = calculate(matrix,2,2);
+        int result = calculate(matrix, 2, 2);
         assertEquals(20, result);
-        result = calculate(matrix,1,1);
+        result = calculate(matrix, 1, 1);
         assertEquals(-3, result);
+    }
+
+    @Test
+    public void testGet2x2() {
+        int[][] matrix = {
+                {1, 2, 3,},
+                {4, 5, 6,},
+                {7, 8, 9,}
+        };
+
+        int[][] result = get2x2(matrix, 0, 0);
+        assertArrayEquals(new int[][]{
+                {5, 6},
+                {8, 9}
+                }, result);
+
+        result = get2x2(matrix, 1, 1);
+        assertArrayEquals(new int[][]{
+                {1, 3},
+                {7, 9}
+        }, result);
+
+        result = get2x2(matrix, 2, 2);
+        assertArrayEquals(new int[][]{
+                {1, 2},
+                {4, 5}
+        }, result);
     }
 }
