@@ -30,6 +30,10 @@ public class BinaryTest {
         final byte B2 = 0b00000010;
         final byte B3 = 0b00000100;
         final byte B4 = 0b00001000;
+        final byte B5 = 0b00010000;
+        final byte B6 = 0b00100000;
+        final byte B7 = 0b01000000;
+        final int B8 = 0b10000000;
         flags = (short) (flags | B3);
         log.info("flags={} {}", flags, Integer.toBinaryString(flags));
         flags = (short) (flags | B1);
@@ -43,6 +47,19 @@ public class BinaryTest {
         flags = (short) (flags & ~B1);
         log.info("flags={} {}", flags, Integer.toBinaryString(flags));
         flags = (short) (flags & ~B3);
+        log.info("flags={} {}", flags, Integer.toBinaryString(flags));
+
+        flags = 0b100000000;
+        int[] x = {B1, B2, B3, B4, B5, B6, B7, B8};
+
+        for (int i=0;i<8;i++) {
+            flags = (short) (flags | x[i]);
+        }
+        log.info("flags={} {}", flags, Integer.toBinaryString(flags));
+
+        for (int i=0;i<8;i++) {
+            flags = (short) (flags & x[i]);
+        }
         log.info("flags={} {}", flags, Integer.toBinaryString(flags));
     }
 }
