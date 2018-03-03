@@ -15,7 +15,11 @@ public class YieldWaitStrategyTest {
 
     AtomicLong counter = new AtomicLong(-1);
 
-    String[] ringBuffer = new String[32];
+    final int Max = 11;
+
+    final int BuffSize = 8;
+
+    String[] ringBuffer = new String[BuffSize];
 
     private void sleep(long ms) {
         try {
@@ -27,15 +31,17 @@ public class YieldWaitStrategyTest {
 
     @Test
     public void test() {
-        String message = "Hello!";
+        //String message = "Hello!";
 
         Thread t1 = new Thread(){
             @Override
             public void run() {
-                long next = counter.get()+1;
-                int index = (int) (next%32);
-                ringBuffer[index] = message;
-                counter.incrementAndGet();
+                while (counter.get()<Max-1) {
+                    long next = counter.get()+1;
+                    int index = (int) (next % BuffSize);
+                    ringBuffer[index] = String.format("next=%d index=%d text=%s", next, index, String.valueOf(System.currentTimeMillis()));
+                    counter.incrementAndGet();
+                }
             }
         };
 
@@ -43,13 +49,17 @@ public class YieldWaitStrategyTest {
             AtomicLong last = new AtomicLong(-1);
             @Override
             public void run() {
-                long cntr;
-                while ((cntr=counter.get())<=last.get()) {
-                    Thread.yield();
+                while (last.get()<Max-1) {
+                    long cntr;
+                    while ((cntr = counter.get()) <= last.get()) {
+                        Thread.yield();
+                    }
+                    long next = last.get()+1;
+                    int index = (int) (next % BuffSize);
+                    String message = ringBuffer[index];
+                    log.info(message);
+                    last.incrementAndGet();
                 }
-                int index = (int) (cntr%32);
-                String message = ringBuffer[index];
-                log.info(message);
             }
         };
 
@@ -59,12 +69,6 @@ public class YieldWaitStrategyTest {
         sleep(10000);
 
         log.info("ok");
-
-
-
-
-
-
 
     }
 }
