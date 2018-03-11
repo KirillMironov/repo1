@@ -121,9 +121,11 @@ public class MatrixTest {
     public void matrixTest() {
         long[][] matrix = new long[10][10];
 
+        Random random = new Random();
+
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                matrix[i][j] = (int) (-100 + Math.random() * 200);
+                matrix[i][j] = random.nextInt(200) - 100;
             }
         }
 

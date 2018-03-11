@@ -31,13 +31,12 @@ public class YieldWaitStrategyTest {
 
     @Test
     public void test() {
-        //String message = "Hello!";
-
-        Thread t1 = new Thread(){
+        //Producer
+        Thread t1 = new Thread() {
             @Override
             public void run() {
-                while (counter.get()<Max-1) {
-                    long next = counter.get()+1;
+                while (counter.get() < Max - 1) {
+                    long next = counter.get() + 1;
                     int index = (int) (next % BuffSize);
                     ringBuffer[index] = String.format("next=%d index=%d text=%s", next, index, String.valueOf(System.currentTimeMillis()));
                     counter.incrementAndGet();
@@ -45,20 +44,22 @@ public class YieldWaitStrategyTest {
             }
         };
 
-        Thread t2 = new Thread(){
-            AtomicLong last = new AtomicLong(-1);
+        //Consumer
+        Thread t2 = new Thread() {
+            AtomicLong consumerCounter = new AtomicLong(-1);
+
             @Override
             public void run() {
-                while (last.get()<Max-1) {
+                while (consumerCounter.get() < Max - 1) {
                     long cntr;
-                    while ((cntr = counter.get()) <= last.get()) {
+                    while ((cntr = counter.get()) <= consumerCounter.get()) {
                         Thread.yield();
                     }
-                    long next = last.get()+1;
+                    long next = consumerCounter.get() + 1;
                     int index = (int) (next % BuffSize);
                     String message = ringBuffer[index];
                     log.info(message);
-                    last.incrementAndGet();
+                    consumerCounter.incrementAndGet();
                 }
             }
         };
