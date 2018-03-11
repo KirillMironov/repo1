@@ -2,6 +2,8 @@ package math;
 
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -114,4 +116,24 @@ public class MatrixTest {
         int result = calculate3x3(matrix);
         assertEquals(0, result);
     }
+
+    @Test
+    public void matrixTest() {
+        long[][] matrix = new long[10][10];
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                matrix[i][j] = (int) (-100 + Math.random() * 200);
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(matrix[i][j] + "\t" + " | ");
+            }
+            System.out.println();
+        }
+
+    }
+
 }
