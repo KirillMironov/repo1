@@ -38,13 +38,23 @@ public class ConnectionPoolTest {
     @Test
     public void closesConnection() {
 
+        Connection connection1 = pool.open();
+        Connection connection2 = pool.open();
+        Connection connection3 = pool.open();
+
+        //Method under test
+        pool.close(connection1);
+
+        //Verify
+        assertEquals(2, pool.free.size());
+        assertEquals(2, pool.open.size());
 
     }
 
     @Test(expected = IllegalStateException.class)
     public void closeThrowsException() {
-
-
+        Connection connection = new Connection();
+        pool.close(connection);
     }
 
 }

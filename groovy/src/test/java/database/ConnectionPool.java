@@ -30,8 +30,9 @@ public class ConnectionPool {
     public void close(Connection connection) {
         if (open.remove(connection)) {
             free.offer(connection);
+        } else {
+            throw new IllegalStateException();
         }
-        throw new IllegalStateException();
     }
 
 }
