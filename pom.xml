@@ -15,6 +15,7 @@
     <modules>
         <module>groovy</module>
         <module>helloweb</module>
+        <module>messaging</module>
     </modules>
 
 </project>
