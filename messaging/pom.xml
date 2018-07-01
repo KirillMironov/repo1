@@ -12,6 +12,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>app</module>
+        <module>messaging-api</module>
+        <module>messaging-solace</module>
     </modules>
     
 </project>
