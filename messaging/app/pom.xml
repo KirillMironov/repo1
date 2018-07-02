@@ -13,22 +13,27 @@
     
     <dependencies>
         <dependency>
+            <groupId>test</groupId>
+            <artifactId>messaging-api</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>test</groupId>
+            <artifactId>messaging-solace</artifactId>
+            <version>1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.solacesystems</groupId>
-            <artifactId>sol-jcsmp</artifactId>
-            <version>10.3.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.7</version>
         </dependency>
-
     </dependencies>
 
     <build>
